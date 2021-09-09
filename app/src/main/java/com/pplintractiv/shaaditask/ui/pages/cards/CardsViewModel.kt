@@ -12,9 +12,9 @@ import kotlinx.coroutines.launch
 
 class CardsViewModel(private val dataRepository: DataRepository) : ViewModel() {
 
-    private var _profileResponse: MutableLiveData<Resource<List<ProfileResponse>>> =
+    private var _profileResponse: MutableLiveData<Resource<ProfileResponse>> =
         MutableLiveData()
-    val profileResponse: LiveData<Resource<List<ProfileResponse>>>
+    val profileResponse: LiveData<Resource<ProfileResponse>>
         get() = _profileResponse
 
     fun getRemoteProfiles() = viewModelScope.launch {

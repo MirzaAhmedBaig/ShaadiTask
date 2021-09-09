@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.pplintractiv.shaaditask.data.network.Resource
 import com.pplintractiv.shaaditask.utils.Anim
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.reflect.ParameterizedType
 import java.net.HttpURLConnection
 import javax.inject.Inject

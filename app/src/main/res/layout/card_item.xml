@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
     android:elevation="10dp"
     app:cardCornerRadius="10dp">
 
@@ -16,7 +15,7 @@
             android:id="@+id/ivProfile"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/glRight"
             app:layout_constraintStart_toStartOf="@+id/glLeft"
@@ -26,12 +25,12 @@
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:gravity="center"
             android:textColor="#2ACEE1"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,12 +41,12 @@
             android:id="@+id/tvDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:gravity="center"
-            android:textColor="#9C9CA5"
-            android:textSize="16sp"
+            android:textColor="#767676"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
@@ -55,15 +54,14 @@
 
         <ImageButton
             android:id="@+id/bvDecline"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
             android:background="@null"
             android:padding="10dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_decline"
             app:layout_constraintEnd_toStartOf="@+id/glLeft"
-            app:layout_constraintStart_toStartOf="@+id/glLeft"
             app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
 
         <TextView
@@ -71,8 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/decline"
-            android:textColor="#9C9CA5"
-            android:textSize="16sp"
+            android:textColor="#767676"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvAccept"
             app:layout_constraintEnd_toEndOf="@+id/bvDecline"
             app:layout_constraintStart_toStartOf="@+id/bvDecline"
@@ -80,12 +78,13 @@
 
         <ImageButton
             android:id="@+id/bvAccept"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
             android:background="@null"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_accept"
-            app:layout_constraintEnd_toStartOf="@+id/glRight"
             app:layout_constraintStart_toStartOf="@+id/glRight"
             app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
 
@@ -93,10 +92,10 @@
             android:id="@+id/tvAccept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/accept"
-            android:textColor="#9C9CA5"
-            android:textSize="16sp"
+            android:textColor="#767676"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/bvAccept"
             app:layout_constraintStart_toStartOf="@+id/bvAccept"
@@ -107,9 +106,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:textColor="#9C9CA5"
+            android:textColor="#767676"
             android:textSize="22sp"
             android:textStyle="bold"
             android:visibility="gone"
@@ -124,14 +123,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.3" />
+            app:layout_constraintGuide_percent="0.35" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.7" />
+            app:layout_constraintGuide_percent="0.65" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAsk"

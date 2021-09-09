@@ -4,12 +4,9 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.pplintractiv.shaaditask.data.db.entities.Dob
-import com.pplintractiv.shaaditask.data.db.entities.Id
 import com.pplintractiv.shaaditask.data.db.entities.Location
-import com.pplintractiv.shaaditask.data.db.entities.Login
 import com.pplintractiv.shaaditask.data.db.entities.Name
 import com.pplintractiv.shaaditask.data.db.entities.Picture
-import com.pplintractiv.shaaditask.data.db.entities.Registered
 
 object Converters {
 
@@ -46,16 +43,6 @@ object Converters {
     }
 
     @TypeConverter
-    fun stringToLogin(login: String?): Login? {
-        return Gson().fromJson(login, Login::class.java)
-    }
-
-    @TypeConverter
-    fun loginToString(login: Login?): String? {
-        return Gson().toJson(login)
-    }
-
-    @TypeConverter
     fun stringToDob(dob: String?): Dob? {
         return Gson().fromJson(dob, Dob::class.java)
     }
@@ -63,26 +50,6 @@ object Converters {
     @TypeConverter
     fun dobToString(dob: Dob?): String? {
         return Gson().toJson(dob)
-    }
-
-    @TypeConverter
-    fun stringToRegistered(registered: String?): Registered? {
-        return Gson().fromJson(registered, Registered::class.java)
-    }
-
-    @TypeConverter
-    fun registeredToString(registered: Registered?): String? {
-        return Gson().toJson(registered)
-    }
-
-    @TypeConverter
-    fun stringToId(id: String?): Id? {
-        return Gson().fromJson(id, Id::class.java)
-    }
-
-    @TypeConverter
-    fun idToString(id: Id?): String? {
-        return Gson().toJson(id)
     }
 
     @TypeConverter

@@ -1,14 +1,13 @@
 package com.pplintractiv.shaaditask.data.db.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class Location(
-    val street: Street,
+    @PrimaryKey
+    val _id: Int,
     val city: String,
     val state: String,
-    val country: String,
-    val postcode: Int,
-    val coordinates: Coordinates,
-    val timezone: Timezone
+    val country: String
 )
