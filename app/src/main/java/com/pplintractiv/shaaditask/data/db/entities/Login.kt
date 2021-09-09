@@ -1,5 +1,8 @@
 package com.pplintractiv.shaaditask.data.db.entities
 
+import androidx.room.Entity
+
+@Entity
 data class Login(
     val uuid: String,
     val username: String,

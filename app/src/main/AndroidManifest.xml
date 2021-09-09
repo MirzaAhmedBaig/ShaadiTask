@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShaadiTask">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.pages.cards.CardsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

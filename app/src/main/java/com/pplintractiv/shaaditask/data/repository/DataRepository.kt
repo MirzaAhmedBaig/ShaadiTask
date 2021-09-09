@@ -9,4 +9,6 @@ class DataRepository @Inject constructor(
     private val db: AppDatabase
 ) : BaseRepository() {
 
+    suspend fun getRemoteProfiles() = safeApiCall { apiManager.getProfiles() }
+
 }
