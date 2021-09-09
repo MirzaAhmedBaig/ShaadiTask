@@ -1,6 +1,7 @@
 package com.pplintractiv.shaaditask.data.repository
 
 import com.pplintractiv.shaaditask.data.db.AppDatabase
+import com.pplintractiv.shaaditask.data.db.entities.Profile
 import com.pplintractiv.shaaditask.data.network.ApiManager
 import javax.inject.Inject
 
@@ -10,5 +11,9 @@ class DataRepository @Inject constructor(
 ) : BaseRepository() {
 
     suspend fun getRemoteProfiles() = safeApiCall { apiManager.getProfiles() }
+
+    fun getLocalProfiles() = db.getProfileDao().getProfiles()
+
+    suspend fun saveProfiles(profiles: List<Profile>) = db.getProfileDao().insertProfiles(profiles)
 
 }
