@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Mirza/extras/ShaadiTask/app/src/main/res/drawable/ic_accept.xml" value="0.2462962962962963" />
+        <entry key="..\:/Mirza/extras/ShaadiTask/app/src/main/res/drawable/ic_decline.xml" value="0.2462962962962963" />
         <entry key="..\:/Mirza/extras/ShaadiTask/app/src/main/res/layout/activity_cards.xml" value="0.25" />
+        <entry key="..\:/Mirza/extras/ShaadiTask/app/src/main/res/layout/card_item.xml" value="0.25" />
       </map>
     </option>
   </component>

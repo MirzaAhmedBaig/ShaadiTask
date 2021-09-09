@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:textColor="#2ACEE1"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+            tools:text="Surjit S" />
+
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:textColor="#9C9CA5"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="27, 5' 8, Punjabi, Jat, Ludhiana, India, MBA - Finance" />
+
+        <ImageButton
+            android:id="@+id/bvDecline"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:background="@null"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_decline"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
+
+        <TextView
+            android:id="@+id/tvDecline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/decline"
+            android:textColor="#9C9CA5"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAccept"
+            app:layout_constraintEnd_toEndOf="@+id/bvDecline"
+            app:layout_constraintStart_toStartOf="@+id/bvDecline"
+            app:layout_constraintTop_toBottomOf="@+id/bvDecline" />
+
+        <ImageButton
+            android:id="@+id/bvAccept"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:background="@null"
+            android:src="@drawable/ic_accept"
+            app:layout_constraintEnd_toStartOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@+id/glRight"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
+
+        <TextView
+            android:id="@+id/tvAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/accept"
+            android:textColor="#9C9CA5"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bvAccept"
+            app:layout_constraintStart_toStartOf="@+id/bvAccept"
+            app:layout_constraintTop_toBottomOf="@+id/bvAccept" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:textColor="#9C9CA5"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetails"
+            app:layout_constraintStart_toStartOf="@+id/tvDetails"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetails"
+            tools:text="Member declined" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpAsk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="bvAccept,bvDecline,tvAccept,tvDecline" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

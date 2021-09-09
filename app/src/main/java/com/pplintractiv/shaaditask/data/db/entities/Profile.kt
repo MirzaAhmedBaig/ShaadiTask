@@ -18,5 +18,6 @@ data class Profile(
     val cell: String,
     val id: Id,
     val picture: Picture,
-    val nat: String
+    val nat: String,
+    var isDeclined: Boolean = false
 )
