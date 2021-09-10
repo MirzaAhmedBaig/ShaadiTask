@@ -2,6 +2,7 @@ package com.pplintractiv.shaaditask.data.db.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.pplintractiv.shaaditask.ui.data.ProfileState
 
 @Entity
 data class Profile(
@@ -16,5 +17,5 @@ data class Profile(
     val cell: String,
     val picture: Picture,
     val nat: String,
-    var isDeclined: Boolean = false
+    @ProfileState var state: Int = ProfileState.NONE
 )

@@ -13,6 +13,8 @@ class DataRepository @Inject constructor(
     suspend fun getRemoteProfiles() = safeApiCall { apiManager.getProfiles() }
 
     fun getLocalProfiles() = db.getProfileDao().getProfiles()
+    suspend fun getLocalProfile(id: Int) = db.getProfileDao().getProfile(id)
+    suspend fun updateProfile(profile: Profile) = db.getProfileDao().updateProfile(profile)
 
     suspend fun saveProfiles(profiles: List<Profile>) = db.getProfileDao().insertProfiles(profiles)
 

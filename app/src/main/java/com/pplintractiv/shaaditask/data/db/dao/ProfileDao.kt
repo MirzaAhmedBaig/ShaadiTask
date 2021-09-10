@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.pplintractiv.shaaditask.data.db.entities.Profile
 
 @Dao
@@ -15,4 +16,10 @@ interface ProfileDao {
 
     @Query("select * from Profile")
     fun getProfiles(): LiveData<List<Profile>>
+
+    @Query("select * from Profile where _id=:id")
+    suspend fun getProfile(id: Int): Profile
+
+    @Update
+    suspend fun updateProfile(profile: Profile)
 }

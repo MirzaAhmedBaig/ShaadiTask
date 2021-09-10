@@ -11,6 +11,7 @@ import com.pplintractiv.shaaditask.R
 import com.pplintractiv.shaaditask.data.db.entities.Profile
 import com.pplintractiv.shaaditask.databinding.ActivityCardsBinding
 import com.pplintractiv.shaaditask.ui.base.BaseVMActivity
+import com.pplintractiv.shaaditask.ui.data.ProfileState
 import com.pplintractiv.shaaditask.utils.BottomMarginItemDecorator
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
@@ -18,6 +19,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CardsActivity : BaseVMActivity<CardsViewModel, ActivityCardsBinding>() {
+
+    private lateinit var listItems: List<CardItem>
 
     override fun getViewBinding(): ActivityCardsBinding {
         return ActivityCardsBinding.inflate(layoutInflater)
@@ -33,15 +36,19 @@ class CardsActivity : BaseVMActivity<CardsViewModel, ActivityCardsBinding>() {
     }
 
     private fun setProfiles(data: List<Profile>) {
-        Log.d(TAG, "setProfiles : Size : ${data.size}\nData : $data")
         val mAdapter = GroupAdapter<GroupieViewHolder>().apply {
-            addAll(data.map {
-                CardItem(it, onAccept = {
-
-                }, onDecline = {
-
+            listItems = data.map {
+                CardItem(it, onAccept = { profileId ->
+                    Log.d(TAG,"OnAccept : $profileId")
+                    viewModel.setProfileState(ProfileState.ACCEPTED, profileId)
+                    updateCardState(ProfileState.ACCEPTED, profileId)
+                }, onDecline = { profileId ->
+                    Log.d(TAG,"onDecline : $profileId")
+                    viewModel.setProfileState(ProfileState.REJECTED, profileId)
+                    updateCardState(ProfileState.REJECTED, profileId)
                 })
-            })
+            }
+            addAll(listItems)
         }
 
         binding.rvProfiles.apply {
@@ -52,13 +59,21 @@ class CardsActivity : BaseVMActivity<CardsViewModel, ActivityCardsBinding>() {
         binding.pbLoader.visibility = View.GONE
     }
 
+    private fun updateCardState(@ProfileState state: Int, profileId: Int) {
+        listItems.indexOfFirst { it.profile._id == profileId }.takeIf { it != -1 }?.let {
+            listItems[it].profile.state = state
+            binding.rvProfiles.adapter?.notifyItemChanged(it)
+        }
+    }
+
     private fun observeProfiles() {
         viewModel.getLocalProfiles().observe(this, Observer {
             if (it.isNullOrEmpty()) {
                 observerRemoteProfiles()
                 viewModel.getRemoteProfiles()
             } else {
-                setProfiles(it)
+                if (!::listItems.isInitialized)
+                    setProfiles(it)
             }
         })
     }

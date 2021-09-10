@@ -8,7 +8,10 @@ import com.pplintractiv.shaaditask.data.db.entities.Profile
 import com.pplintractiv.shaaditask.data.network.Resource
 import com.pplintractiv.shaaditask.data.network.response.ProfileResponse
 import com.pplintractiv.shaaditask.data.repository.DataRepository
+import com.pplintractiv.shaaditask.ui.data.ProfileState
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CardsViewModel(private val dataRepository: DataRepository) : ViewModel() {
 
@@ -26,5 +29,12 @@ class CardsViewModel(private val dataRepository: DataRepository) : ViewModel() {
     fun saveProfiles(profiles: List<Profile>) = viewModelScope.launch {
         dataRepository.saveProfiles(profiles)
     }
+
+    fun setProfileState(@ProfileState state: Int, profileId: Int) =
+        viewModelScope.launch(Dispatchers.Main) {
+            val profile = dataRepository.getLocalProfile(profileId)
+            profile.state = state
+            dataRepository.updateProfile(profile)
+        }
 
 }
